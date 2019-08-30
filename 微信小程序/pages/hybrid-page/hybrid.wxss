@@ -1,0 +1,35 @@
+view{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+view text{
+  display: block;
+  margin-top: 10px;
+}
+
+.title{
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.note{
+  display: block;
+  position: fixed;
+  left: 0;
+  bottom: 120px;
+  padding: 0 30px;
+  width: 100%;
+  color: #999999;
+  font-weight: lighter;
+  line-height: 1.5em;
+  text-align: center;
+  word-wrap: break-word;
+  word-break: break-all;
+  box-sizing: border-box;
+}

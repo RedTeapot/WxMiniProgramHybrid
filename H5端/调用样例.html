@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	
+	<style type = "text/css">
+	.title{
+		padding: 10px;
+		text-align: center;
+		font-weight: bold;
+	}
+	.now{
+		margin-top: 10px;
+		text-align: center;
+		font-weight: lighter;
+		color: #999999;
+	}
+	.btn{
+		display: block;
+		margin: 0 auto;
+	}
+	.msg{
+		padding: 10px;
+		font-weight: lighter;
+	}
+	.msg:nth-child(even){
+		background-color: #EFEFEF;
+	}
+	.output{
+		word-wrap: break-word;
+	}
+	</style>
+</head>
+<body>
+	<div class = "title">
+		这是 H5 页面
+		<div class = "now"></div>
+	</div>
+	<input class = "btn" type = "button" value = "向小程序发送消息"/>
+	<div class = "output"></output>
+
+	<script type = "text/javascript" src = "js/plugin/jweixin-1.4.0.js"></script>
+	<script type = "text/javascript" src = "miniProgramHybrid.js"></script>
+	<script type = "text/javascript">
+	var $ = function(selector){
+		return document.querySelector(selector);
+	};
+	
+	var nowObj = $(".now"),
+		btnObj = $(".btn"),
+		outputObj = $(".output");
+		
+	nowObj.innerHTML = new Date().toLocaleString();
+	btnObj.addEventListener("click", function(){
+		miniProgramHybrid.call(
+			/**
+			 * 必填
+			 * 业务指令，由 H5 和 小程序 双方约定。H5发出，小程序接收并响应
+			 */
+			"open-camera",
+			
+			/**
+			 * 选填
+			 * 业务指令执行参数，由 H5 和 小程序 双方约定，用于指导小程序的工作细节
+			 */
+			{
+				quality: 100
+			},
+			
+			/**
+			 * 选填
+			 * 用于接收小程序处理结果的回调方法
+			 * 
+			 * @param {String} result 小程序的反馈结果
+			 */
+			function(result){
+				var msgObj = document.createElement("div");
+				msgObj.classList.add("msg");
+				msgObj.innerHTML = "收到反馈：<br/>" + result;
+				
+				var firstChild = outputObj.children[0];
+				if(null == firstChild)
+					outputObj.appendChild(msgObj);
+				else
+					outputObj.insertBefore(msgObj, firstChild);
+			}
+		);
+	});
+	</script>
+</body>
+</html>

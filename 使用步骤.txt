@@ -1,0 +1,14 @@
+【H5 - 配置步骤】
+1. 网页引入 miniProgramHybrid.js
+2. 在需要通讯的地方调用API：miniProgramHybrid.call("业务指令", {参数集合}, 可选的回调方法)
+
+【微信小程序 - 配置步骤】
+3. 将 index，hybrid-lib 与 hybrid-page 并行存放至小程序工程的 pages 目录下
+4. 在微信小程序的 app.json 文件中添加页面："pages/hybrid-page/hybrid" 和 "pages/index/index"
+5. 调整微信小程序 index 页面中 data 的 webviewSrc 字段取值为 webview 要打开的 H5 链接地址
+
+【微信小程序 - 业务指令开发步骤】
+6. 在 hybrid-lib/handler.js 中根据样例定义业务指令
+
+【H5 - 注意事项】
+1. 通讯模型借助了 H5 的 hashchange 事件（hash 将被更改为形如：#H5Req_xxxx&v=1567077985338的形态），如果H5页面的既有逻辑也有使用 hashchange，请注意区分、识别

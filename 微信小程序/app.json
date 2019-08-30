@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/hybrid-page/hybrid"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#333333",
+    "backgroundColorTop": "#333333",
+    "backgroundColorBottom": "#333333",
+    "navigationBarTitleText": "Hybrid",
+    "navigationBarTextStyle": "white"
+  }
+}

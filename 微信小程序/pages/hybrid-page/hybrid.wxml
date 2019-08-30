@@ -1,0 +1,10 @@
+<text class = "title">
+  这是 小程序 页面
+</text>
+
+<view>
+  <icon type = "waiting" size = "60"/>
+  <text>正在处理，请稍后</text>
+</view>
+
+<text class = "note">本页面的滞留时长，取决于当前业务指令的处理速度</text>
